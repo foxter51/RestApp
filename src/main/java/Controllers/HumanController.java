@@ -1,6 +1,7 @@
 package Controllers;
 
 import Entities.Human;
+import Exceptions.HumanNotFoundException;
 import Services.HumanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ public class HumanController {
 
     @GetMapping("/humans/{id}")
     Human getHumanInfo(@PathVariable Long id){
-        return humanService.getHumanById(id);
+        return humanService.findHumanById(id)
+                .orElseThrow(() -> new HumanNotFoundException(id));
     }
 }
