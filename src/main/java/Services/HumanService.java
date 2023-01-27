@@ -21,7 +21,7 @@ public class HumanService {
         humanRepository.save(human);
     }
 
-    public Optional<Human> getHumanById(Long id){
+    public Optional<Human> findHumanById(Long id){
         return humanRepository.findById(id);
     }
 
