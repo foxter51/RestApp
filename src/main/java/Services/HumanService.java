@@ -5,6 +5,8 @@ import Repositories.HumanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class HumanService {
 
@@ -19,8 +21,8 @@ public class HumanService {
         humanRepository.save(human);
     }
 
-    public Human getHumanById(Long id){
-        return humanRepository.getHumanById(id);
+    public Optional<Human> getHumanById(Long id){
+        return humanRepository.findById(id);
     }
 
 }
