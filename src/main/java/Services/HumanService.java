@@ -17,8 +17,8 @@ public class HumanService {
         this.humanRepository = humanRepository;
     }
 
-    public void createHuman(Human human){
-        humanRepository.save(human);
+    public Human createHuman(Human human){
+        return humanRepository.save(human);
     }
 
     public Optional<Human> findHumanById(Long id){
